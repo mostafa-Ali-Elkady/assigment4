@@ -19,14 +19,29 @@ if (window.location.href.endsWith("signup.html")) {
   signupForm.addEventListener("submit", function (e) {
     e.preventDefault();
     if (isValidEmail() && isValidName() && isValidPassword()) {
-      let user = {
-        userName: signupName.value,
-        userEmail: signupEmail.value,
-        userPassword: signupPassword.value,
-      };
-      users.push(user);
-      localStorage.setItem("userData", JSON.stringify(users));
-      window.location.href = "./index.html";
+      const name = signupName.value;
+      const email = signupEmail.value;
+      const password = signupPassword.value;
+      // Check if the email is already registered
+      const emailExists = users.some((user) => user.userEmail === email);
+
+      if (emailExists) {
+        Swal.fire({
+          title: "<h3>Email already registered</h3>",
+          html: "<p>-- Please use a different email address--</p>",
+          confirmButtonText: "OK",
+        });
+      } else {
+        let user = {
+          userName: name,
+          userEmail: email,
+          userPassword: password,
+        };
+
+        users.push(user);
+        localStorage.setItem("userData", JSON.stringify(users));
+        window.location.href = "./index.html";
+      }
     } else {
       if (!isValidName()) {
         Swal.fire({
@@ -65,21 +80,28 @@ if (window.location.href.endsWith("index.html")) {
     e.preventDefault();
     const email = loginEmail.value;
     const password = loginPassword.value;
-
-    // Check if there is a user with the same email and password
-    const user = users.find(
-      (user) => user.userEmail === email && user.userPassword === password
-    );
-
-    if (user) {
-      localStorage.setItem("username", user.userName); // Store the username
-      window.location.href = "./home.html";
-    } else {
+    if (loginEmail.value === "" || loginPassword.value === "") {
       Swal.fire({
-        title: "<h3> Email or Password is not correct</h3>",
-        html: "<p>-- Please Try Again--</p>",
+        title: "<h3>Fill The login Inputs Please</h3>",
+        html: "<p>-- All Inputs Must Be Filled--<</p>",
         confirmButtonText: "OK",
       });
+    } else {
+      // Check if there is a user with the same email and password
+      const user = users.find(
+        (user) => user.userEmail === email && user.userPassword === password
+      );
+
+      if (user) {
+        localStorage.setItem("username", user.userName); // Store the username
+        window.location.href = "./home.html";
+      } else {
+        Swal.fire({
+          title: "<h3> Email or Password is not correct</h3>",
+          html: "<p>-- Please Try Again--</p>",
+          confirmButtonText: "OK",
+        });
+      }
     }
   });
 }
