@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>assigment4</title>
+    <link rel="stylesheet" href="css/sweetalert2.min.css" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="form mx-auto my-5 custom-box-shadow">
+        <h1>Smart Login System</h1>
+        <form action="" id="login-form">
+          <input
+            type="email"
+            name="email"
+            id="loginEmail"
+            class="form-control my-3"
+            placeholder="Enter Your Email"
+          />
+          <input
+            type="password"
+            name="password"
+            id="loginPassword"
+            class="form-control my-3"
+            placeholder="Enter Your Password"
+          />
+          <p class="text-danger d-none">All inputs is required</p>
+          <button
+            class="submit btn btn-outline-info w-100 mt-3 fw-bold"
+            id="loginBtn"
+          >
+            login
+          </button>
+          <p class="text-white mt-3">
+            Don’t have an account?
+            <button class="btn btn-outline-warning text-light">
+              <a
+                href="./signup.html"
+                class="text-info fw-bold text-decoration-none"
+                >Sign Up</a
+              >
+            </button>
+          </p>
+        </form>
+      </div>
+    </div>
+    <script src="js/sweetalert2.all.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>

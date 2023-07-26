@@ -1,0 +1,36 @@
+body {
+  background-color: #24353f;
+  color: #17a2b8;
+  text-align: center;
+}
+.custom-box-shadow {
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 12px 16px 14px;
+}
+.form {
+  padding: 3rem;
+  max-width: 800px;
+  font-weight: 600;
+}
+.form-control {
+  background-color: transparent;
+  color: #fff !important;
+  font-weight: 600;
+}
+.form-control:focus {
+  background-color: transparent;
+  /* border-color: #17a2b8; */
+  box-shadow: 0 0 0 0.1rem #17a2b8
+}
+.form-control::placeholder {
+  color: #979696;
+}
+/* Home Style */
+
+.message-box {
+  max-width: 800px;
+  margin: auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
