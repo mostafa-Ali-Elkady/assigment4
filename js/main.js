@@ -66,8 +66,8 @@ if (window.location.href.endsWith("signup.html")) {
       }
       if (!isValidName() && !isValidEmail() && !isValidPassword()) {
         Swal.fire({
-          title: "<h3>Fill The Form Please</h3>",
-          html: "<p>-- All Inputs Must Be Filled--<</p>",
+          title: "<h3> Please Fill The Form </h3>",
+          html: "<p>-- All Inputs Must Be Filled--</p>",
           confirmButtonText: "OK",
         });
       }
